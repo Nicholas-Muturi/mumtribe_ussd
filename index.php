@@ -41,6 +41,6 @@ if($text == ""){
 }
 
 header('Content-type: text/plain');
-echo $response;	
+echo $response;
 ?>
 
