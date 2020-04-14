@@ -52,7 +52,7 @@ function input_logic($input, $phoneNumber){
 		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][0-9]+$/",$input):
 			$response = "CON Enter age \n";
 		break;
-		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][a-zA-Z0-9]+$/",$input):
+		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][a-zA-Z0-9]+[*][0-9]+$/",$input):
 			$exploded = explode("*",$input);
 			$email = $exploded[count($exploded)-3];
 			$pass = $exploded[count($exploded)-2];
