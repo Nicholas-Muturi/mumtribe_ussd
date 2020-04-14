@@ -74,7 +74,7 @@ function input_logic($input, $phoneNumber){
 	}
 	
 	//Menu 5 Options
-	else if(preg_match("/5[*][0-3][0-1][*][a-zA-Z]+$/",$input)){
+	else if(preg_match("/5[*][0-9]|[0-3][0-1][*][a-zA-Z]+$/",$input)){
 		$exploded = explode("*",$input);
 		$day = $exploded[count($exploded)-2];
 		$month = $exploded[count($exploded)-1];
@@ -82,7 +82,7 @@ function input_logic($input, $phoneNumber){
 
 		$response = "END Previous cycle:$day/$month/$year. -- Next cycle date: n/a";		
 	}
-	else if(preg_match("/5[*][0-3][0-1]+$/",$input)){
+	else if(preg_match("/5[*][0-9]|[0-3][0-1]+$/",$input)){
 		$response = "CON Enter the month of your last period\n";		
 	}
 
