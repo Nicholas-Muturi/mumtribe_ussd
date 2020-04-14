@@ -49,7 +49,7 @@ function input_logic($input, $phoneNumber){
 		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+$/",$input):
 			$response = "CON Enter password \n";
 		break;
-		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+$[*][0-9]/",$input):
+		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][0-9]+$/",$input):
 			$response = "CON Enter age \n";
 		break;
 		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][a-zA-Z0-9]+$/",$input):
@@ -83,7 +83,7 @@ function input_logic($input, $phoneNumber){
 		break;
 		//Menu 3
 		case preg_match("/3$/",$input):
-			$response = "END health proffesional list here";
+			$response = "END health professional list here";
 		break;
 		
 		//Menu 4
@@ -94,7 +94,7 @@ function input_logic($input, $phoneNumber){
 
 		break;
 		case preg_match("/4[*]1$/",$input):
-			$response = "END $phoneNumber is now subscribed to health reeminders";
+			$response = "END $phoneNumber is now subscribed to health reminders";
 		break;
 		case preg_match("/4[*]2$/",$input):
 			$response = "END $phoneNumber is now unsubscribed to health reminders";
