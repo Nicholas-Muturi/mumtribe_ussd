@@ -167,11 +167,12 @@ function input_logic($input, $phoneNumber){
 		default:
 		return input_logic($previous_menu,$phoneNumber);
 	}
+
 	return $response;
 }
 
 header('Content-type: text/plain');
-echo $input_logic($text, $phoneNumber);
+echo input_logic($text, $phoneNumber);
 
 ?>
 
