@@ -52,14 +52,14 @@ function input_logic($input, $phoneNumber){
 		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][0-9]+$/",$input):
 			$response = "CON Enter age \n";
 		break;
-		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][a-zA-Z0-9]+[*][0-9]+$/",$input):
+		case preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][0-9]+[*][0-9]+$/",$input):
 			$exploded = explode("*",$input);
 			$email = $exploded[count($exploded)-3];
 			$pass = $exploded[count($exploded)-2];
 			$age = $exploded[count($exploded)-1];
 			$response = "END Email/Password/Age are " . $email . " / " . $pass . " / " . $age . "\n";
-
 		break;
+
 		//Menu 2
 		case preg_match("/2$/",$input):
 			$response = "CON Select an option below \n";
@@ -81,6 +81,7 @@ function input_logic($input, $phoneNumber){
 				$response .= ($i + 1) . " " . $femalenames[$i] . "\n";
 			}
 		break;
+
 		//Menu 3
 		case preg_match("/3$/",$input):
 			$response = "END health professional list here";
@@ -169,7 +170,8 @@ function input_logic($input, $phoneNumber){
 		default:
 			$previous_menu = explode("*",$input);
 			array_pop($previous_menu);
-			input_logic($previous_menu,$phoneNumber);
+			//input_logic($previous_menu,$phoneNumber);
+			return "END An error occured";
 		break;
 	}
 
