@@ -94,18 +94,15 @@ function input_logic($input, $phoneNumber){
 	}
 	
 	//Menu 5 Options
-	else if(preg_match("/5[*][a-zA-Z0-9][*][a-zA-Z]+$/",$input)){
+	else if(preg_match("/5[*][a-zA-Z0-9]+$/",$input)){
 		$exploded = explode("*",$input);
-		$date_input = $exploded[count($exploded)-2];
+		$date_input = $exploded[count($exploded)-1];
 		$exploded_date = explode("/",$date_input);
 		$day =  $exploded_date[0];
 		$month = $exploded_date[1];
 		$year = $exploded_date[2];
 
 		$response = "END Previous cycle:$day/$month/$year. -- Next cycle date: n/a";		
-	}
-	else if(preg_match("/5[*][a-zA-Z0-9]+$/",$input)){
-		$response = "CON Enter the date of your last period in dd/mm/yyyy format\n";		
 	}
 
 	//Menu 6
