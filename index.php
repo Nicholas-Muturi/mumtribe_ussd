@@ -106,15 +106,14 @@ function input_logic($input, $phoneNumber){
 	}
 
 	//Menu 6
-	else if(preg_match("/6[*][0-3][0-1][*][a-zA-Z]+$/",$input)){
+	else if(preg_match("/6[*][\d]+[\/][\d]+[\/][\d]{4}+$/",$input)){
 		$exploded = explode("*",$input);
-		$day = $exploded[count($exploded)-2];
-		$month = $exploded[count($exploded)-1];
-		$year = date("Y");
+		$date_input = $exploded[count($exploded)-1];
+		$exploded_date = explode("/",$date_input);
+		$day =  $exploded_date[0];
+		$month = $exploded_date[1];
+		$year = $exploded_date[2];
 		$response = "END Previous date:$day/$month/$year. -- Estimated date: n/a";
-	}
-	else if(preg_match("/6[*][0-3][0-1]+$/",$input)){
-		$response = "CON Enter the Enter conception month\n";
 	}
 
 	//Menu 11 Options
@@ -144,7 +143,7 @@ function input_logic($input, $phoneNumber){
 		$response = "END You shall be called by an emergency service shortly \n";
 	}
 	else if(preg_match("/6$/",$input)){
-		$response = "CON Enter conception date (01-31) \n";
+		$response = "CON Enter conception date in dd/mm/yyyy format \n";
 	}
 	else if(preg_match("/5$/",$input)){
 		$response = "CON Enter the date of your last period in dd/mm/yyyy format \n";		
