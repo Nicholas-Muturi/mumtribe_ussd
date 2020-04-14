@@ -6,15 +6,6 @@ $text = $_POST['text'];
 
 
 function input_logic($input, $phoneNumber){
-
-	// if(count($input)>1){
-	// 	$previous_menu=explode("*",$input);
-	// 	array_pop($previous_menu); 
-	// }
-	// else{
-	// 	$previous_menu = "";
-	// }
-
 	$phoneNumber = $phoneNumber;
 	$response = "";
 
@@ -26,10 +17,17 @@ function input_logic($input, $phoneNumber){
 			$response .= "3. Check for health professionals \n";
 			$response .= "4. Daily health reminders \n";
 			$response .= "5. Ovulation Calculator \n";
+			$response .= "6. Due date calculator\n";
+			$response .= "7. Get instant ambulance for delivery \n";
+			$response .= "8. Checkout nearest health center \n";
 			$response .= "98. More \n";
 		break;
 		case preg_match("/98$/", $input):
-
+			$response = "CON Select an option below \n";
+			$response .= "9. Check maternity shops \n";
+			$response .= "10. Book private birthing \n";
+			$response .= "11. Subscribe daily tips\n";
+			$response .= "00. Back Home \n";
 		break;
 		case preg_match("/[*]00$/", $input):
 			$response = "CON Welcome. Select an option below \n";
@@ -38,6 +36,9 @@ function input_logic($input, $phoneNumber){
 			$response .= "3. Check for health professionals \n";
 			$response .= "4. Daily health reminders \n";
 			$response .= "5. Ovulation Calculator \n";
+			$response .= "6. Due date calculator\n";
+			$response .= "7. Get instant ambulance for delivery \n";
+			$response .= "8. Checkout nearest health center \n";
 			$response .= "98. More \n";
 		break;
 
@@ -64,7 +65,7 @@ function input_logic($input, $phoneNumber){
 			$response = "CON Select an option below \n";
 			$response .= "1. Male names \n";
 			$response .= "2. Female names \n";
-			$response .= "00. Back \n";
+			$response .= "00. Back Home \n";
 		break;
 		case preg_match("/2[*]1$/",$input):
 			$response = "END Male names \n";
@@ -88,8 +89,8 @@ function input_logic($input, $phoneNumber){
 		//Menu 4
 		case preg_match("/4$/",$input):
 			$response = "CON 1. Subscribe \n";
-			$response .= "2. Unsubscribed \n";
-			$response .= "00. Back \n";
+			$response .= "2. Unsubscribe \n";
+			$response .= "00. Back Home \n";
 
 		break;
 		case preg_match("/4[*]1$/",$input):
@@ -154,8 +155,8 @@ function input_logic($input, $phoneNumber){
 		//Menu 11
 		case preg_match("/11$/",$input):
 			$response = "CON 1. Subscribe \n";
-			$response .= "2. Unsubscribed \n";
-			$response .= "00. Back \n";
+			$response .= "2. Unsubscribe \n";
+			$response .= "00. Back Home \n";
 
 		break;
 		case preg_match("/11[*]1$/",$input):
@@ -166,7 +167,10 @@ function input_logic($input, $phoneNumber){
 		break;
 
 		default:
-		return "END an error occured";
+			$previous_menu = explode("*",$input);
+			array_pop($previous_menu);
+			input_logic($previous_menu,$phoneNumber);
+		break;
 	}
 
 	return $response;
