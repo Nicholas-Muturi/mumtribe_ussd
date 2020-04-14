@@ -33,27 +33,7 @@ function input_logic($input, $phoneNumber){
 		$response .= "8. Checkout nearest health center \n";
 		$response .= "98. More \n";
 	}
-	/* BACK NAVIGATION */
-	else if(preg_match("/98$/", $input)){
-		$response = "CON Select an option below \n";
-		$response .= "9. Check maternity shops \n";
-		$response .= "10. Book private birthing \n";
-		$response .= "11. Subscribe daily tips\n";
-		$response .= "00. Back Home \n";
-	}
-	else if(preg_match("/[*]00$/", $input)){
-		$response = "CON Welcome. Select an option below \n";
-		$response .= "1. Register \n";
-		$response .= "2. Get baby name \n";
-		$response .= "3. Check for health professionals \n";
-		$response .= "4. Daily health reminders \n";
-		$response .= "5. Ovulation Calculator \n";
-		$response .= "6. Due date calculator\n";
-		$response .= "7. Get instant ambulance for delivery \n";
-		$response .= "8. Checkout nearest health center \n";
-		$response .= "98. More \n";		
-	}
-
+	
 	// Menu 1 Options
 	else if(preg_match("/1[*][a-zA-Z0-9_.+]+@[a-zA-Z0-9]+.[a-zA-Z]+[*][a-zA-Z0-9]+[*][0-9]+$/",$input)){
 		$exploded = explode("*",$input);
@@ -164,6 +144,26 @@ function input_logic($input, $phoneNumber){
 	}
 	else if(preg_match("/1$/",$input)){
 		$response = "CON Enter email address \n";
+	}
+	/* BACK NAVIGATION */
+	else if(preg_match("/98$/", $input)){
+		$response = "CON Select an option below \n";
+		$response .= "9. Check maternity shops \n";
+		$response .= "10. Book private birthing \n";
+		$response .= "11. Subscribe daily tips\n";
+		$response .= "00. Back Home \n";
+	}
+	else if(preg_match("/[*]00$/", $input)){
+		$response = "CON Welcome. Select an option below \n";
+		$response .= "1. Register \n";
+		$response .= "2. Get baby name \n";
+		$response .= "3. Check for health professionals \n";
+		$response .= "4. Daily health reminders \n";
+		$response .= "5. Ovulation Calculator \n";
+		$response .= "6. Due date calculator\n";
+		$response .= "7. Get instant ambulance for delivery \n";
+		$response .= "8. Checkout nearest health center \n";
+		$response .= "98. More \n";		
 	}
 	else {
 		$response = "END An error occured";
