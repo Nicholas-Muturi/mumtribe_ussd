@@ -6,13 +6,14 @@ $text = $_POST['text'];
 
 
 function input_logic($input, $phoneNumber){
-	if(count($input)>1){
-		$previous_menu=explode("*",$input);
-		array_pop($previous_menu); 
-	}
-	else{
-		$previous_menu="";
-	}
+
+	// if(count($input)>1){
+	// 	$previous_menu=explode("*",$input);
+	// 	array_pop($previous_menu); 
+	// }
+	// else{
+	// 	$previous_menu = "";
+	// }
 
 	$phoneNumber = $phoneNumber;
 	$response = "";
@@ -165,14 +166,15 @@ function input_logic($input, $phoneNumber){
 		break;
 
 		default:
-		return input_logic($previous_menu,$phoneNumber);
+		return "END an error occured";
 	}
 
 	return $response;
 }
 
 header('Content-type: text/plain');
-echo input_logic($text, $phoneNumber);
+$response = input_logic($text, $phoneNumber);
+echo $response;
 
 ?>
 
