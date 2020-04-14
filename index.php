@@ -94,7 +94,7 @@ function input_logic($input, $phoneNumber){
 	}
 	
 	//Menu 5 Options
-	else if(preg_match("/5[*][a-zA-Z0-9]+$/",$input)){
+	else if(preg_match("/5[*][\d]+[\/][\d]+[\/][\d]{4}+$/",$input)){
 		$exploded = explode("*",$input);
 		$date_input = $exploded[count($exploded)-1];
 		$exploded_date = explode("/",$date_input);
