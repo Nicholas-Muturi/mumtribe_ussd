@@ -8,7 +8,6 @@ header('Content-type: text/plain');
 $response = input_logic($text, $phoneNumber);
 echo $response;
 
-
 /* FUNCTIONS */
 function input_logic($input, $phoneNumber){
 	/**
@@ -96,6 +95,14 @@ function input_logic($input, $phoneNumber){
 		$response = "END Previous date:$day/$month/$year. -- Estimated date: n/a";
 	}
 
+	//Menu 10 Options
+	else if(preg_match("/10[*]2$/",$input)){
+		$response = "END You shall be contacted by hospital B to continue the process";
+	}
+	else if(preg_match("/10[*]1$/",$input)){
+		$response = "END You shall be contacted by hospital A to continue the process";
+	}
+
 	//Menu 11 Options
 	else if(preg_match("/11[*]2$/",$input)){
 		$response = "END $phoneNumber is now unsubscribed to daily tips";
@@ -132,7 +139,10 @@ function input_logic($input, $phoneNumber){
 		$response .= "00. Back Home \n";
 	}
 	else if(preg_match("/10$/",$input)){
-		$response = "END List of maternity shops\n";
+		$response = "CON Select a hospital to book \n";
+		$response .= "1. Hospital A \n";
+		$response .= "2. Hospital B \n";
+		$response .= "00. Back Home \n";
 	}
 	else if(preg_match("/9$/",$input)){
 		$response = "END List of maternity shops\n";
@@ -165,7 +175,8 @@ function input_logic($input, $phoneNumber){
 	}
 	else if(preg_match("/1$/",$input)){
 		$response = "CON Enter email address \n";
-	}	else {
+	}
+	else {
 		$response = "END An error occured";
 	}
 
